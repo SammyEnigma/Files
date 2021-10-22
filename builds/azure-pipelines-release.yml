@@ -75,6 +75,7 @@ jobs:
       platform: 'x86'
       configuration: '$(buildConfiguration)'
       msbuildArguments: '/t:build;_GenerateAppxPackage /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=Sideload /p:AppxPackageSigningEnabled=true /p:PackageCertificateKeyFile="$(caCertificate.secureFilePath)" /p:PackageCertificatePassword="$(signingCert.password)" /p:PackageCertificateThumbprint=""'
+      clean: true
       maximumCpuCount: true
 
   - task: CopyFiles@2
@@ -145,6 +146,7 @@ jobs:
       platform: 'x86'
       configuration: '$(buildConfiguration)'
       msbuildArguments: '/t:build;_GenerateAppxPackage /p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload'
+      clean: true
       maximumCpuCount: true
     
   - task: CopyFiles@2
